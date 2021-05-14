@@ -1,0 +1,232 @@
+/* Home Carousel css
+============================================================================================ */
+
+.main_slider_area{
+    #main_slider{
+        ul{
+            li{
+                .slider_text_box{
+                    .first_text{
+                        
+                    }
+                    .secand_text{
+                        font-family: $pop;
+                        font-weight: 600 !important;
+                        color: #000;
+                    }
+                    .third_btn{
+                        .checkout_btn{
+                            padding: 0px 40px !important;
+                            line-height: 48px !important;
+                            transition: all 300ms linear !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #fullwidth_slider{
+        ul{
+            li{
+                .slider_text_box{
+                    .first_text{
+                        font-weight: 600 !important;
+                        font-family: $pop;
+                        color: #000;
+                    }
+                    .secand_text{
+                        font-weight: 600 !important;
+                        font-family: $pop;
+                        color: #012f45;
+                        text-transform: uppercase;
+                    }
+                    .third_text{
+                        color: #666666;
+                        font-family: $pop;
+                        font-weight: normal !important;
+                    }
+                    .four_btn{
+                        .checkout_btn{
+                            padding: 0px 40px !important;
+                            line-height: 48px !important;
+                            transition: all 300ms linear !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #home_box_slider{
+        ul{
+            li{
+                .slider_text_box{
+                    .first_text{
+                        font-weight: 600 !important;
+                        font-family: $pop;
+                        color: #000;
+                    }
+                    .secand_text{
+                        color: #666666;
+                        font-family: $pop;
+                        font-weight: normal !important;
+                    }
+                    .third_btn{
+                        .checkout_btn{
+                            padding: 0px 40px !important;
+                            line-height: 48px !important;
+                            transition: all 300ms linear !important;
+                            background: #000000;
+                            color: #fff;
+                            border-color: #000;
+                            &:hover{
+                                background: $baseColor;
+                                border-color: $baseColor;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+.home_carousel_area{
+    
+}
+.home_carousel_slider{
+    .h_carousel_item{
+        position: relative;
+        overflow: hidden;
+        z-index: 3;
+        img{
+            transition: all 600ms linear;
+        }
+        &:before{
+            content: "";
+            background: rgba(0, 0, 0, .70);
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: all 300ms ease-out;
+            z-index: 1;
+        }
+        .carousel_hover{
+            position: absolute;
+            width: 100%;
+            left: 0px;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: center;
+            color: #fff;
+            z-index: 2;
+            h3{
+                font-size: 16px;
+                font-family: $pop;
+                font-weight: 600;
+                text-transform: uppercase;
+                transition: all 400ms linear;
+                opacity: 0;
+                -webkit-transform: translateY(2rem);
+                -ms-transform: translateY(2rem);
+                transform: translateY(2rem);
+            }
+            h4{
+                font-size: 24px;
+                font-family: $pop;
+                font-weight: 500;
+                line-height: 30px;
+                text-transform: uppercase;
+                padding: 20px 0px;
+                transition: all 650ms linear;
+                opacity: 0;
+                -webkit-transform: translateY(2rem);
+                -ms-transform: translateY(2rem);
+                transform: translateY(2rem);
+            }
+            h5{
+                font-size: 13px;
+                font-family: $pop;
+                font-weight: 300;
+                color: #b5b5b5;
+                transition: all 400ms linear;
+                opacity: 0;
+            }
+            p{
+                font-size: 13px;
+                font-family: $pop;
+                font-weight: 300;
+                color: #b5b5b5;
+                line-height: 24px;
+                padding: 3px 0px 35px 0px;
+                transition: all 600ms linear;
+                opacity: 0;
+            }
+            .discover_btn{
+                opacity: 0;
+                -webkit-transform: translateY(2rem);
+                -ms-transform: translateY(2rem);
+                transform: translateY(2rem);
+                transition: all 700ms linear;
+            }
+        }
+        &:hover{
+            img{
+                transform: scale(1.05);
+            }
+            &:before{
+                opacity: 1;
+            }
+            .carousel_hover{
+                h3{
+                    opacity: 1;
+                    transform: translateY(0rem);
+                }
+                h4{
+                    opacity: 1;
+                    transform: translateY(0rem);
+                }
+                h5{
+                    opacity: 1;
+                }
+                p{
+                    opacity: 1;
+                }
+                .discover_btn{
+                    opacity: 1;
+                    transform: translateY(0rem);
+                }
+            }
+        }
+    }
+    .owl-next, .owl-prev{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 4;
+        height: 60px;
+        width: 60px;
+        border: 2px solid #fff;
+        text-align: center;
+        line-height: 60px;
+        font-size: 36px;
+        color: #fff;
+        background: rgba(0, 0, 0, .4);
+        cursor: pointer;
+    }
+    .owl-prev{
+        left: 0px;
+    }
+    .owl-next{
+        right: 0px;
+    }
+}
+/* End Home Carousel css
+============================================================================================ */
+

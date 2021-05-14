@@ -1,0 +1,79 @@
+/* line 9, ../sass/style.scss */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 13, ../sass/style.scss */
+body {
+  font-size: 15px;
+  line-height: 25px;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  background-color:#16A085;
+}
+
+/* line 19, ../sass/style.scss */
+.verticalCarousel {
+  margin: 50px auto;
+  max-width: 500px;
+  background-color: #f1f1f1;
+}
+
+/* line 24, ../sass/style.scss */
+.verticalCarouselHeader {
+  background: #e1e1e1;
+  border-width: 0px;
+  border-style: solid;
+  padding: 15px;
+}
+/* line 27, ../sass/style.scss */
+.verticalCarouselHeader:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+/* line 32, ../sass/style.scss */
+.verticalCarouselHeader h3 {
+  float: left;
+  margin: 0px;
+}
+/* line 36, ../sass/style.scss */
+.verticalCarouselHeader .vc_goUp, .verticalCarouselHeader .vc_goDown {
+  float: right;
+  display: block;
+  width: 25px;
+  height: 25px;
+  background: #fff;
+  text-align: center;
+  color: #000;
+  margin-left: 5px;
+}
+/* line 45, ../sass/style.scss */
+.verticalCarouselHeader .vc_goUp:active, .verticalCarouselHeader .vc_goDown:active {
+  -moz-transform: scale(0.7, 0.7);
+  -ms-transform: scale(0.7, 0.7);
+  -webkit-transform: scale(0.7, 0.7);
+  transform: scale(0.7, 0.7);
+}
+
+/* line 52, ../sass/style.scss */
+.verticalCarouselGroup.vc_list > li {
+  margin: 15px;
+  border-width: 0px;
+  border-style: solid;
+  padding: 15px;
+  background-color: #fff;
+  -moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+}
+/* line 57, ../sass/style.scss */
+.verticalCarouselGroup.vc_list > li h4 {
+  margin: 0px 0px 15px;
+}
+/* line 60, ../sass/style.scss */
+.verticalCarouselGroup.vc_list > li p {
+  margin: 0px 0px 0px;
+}

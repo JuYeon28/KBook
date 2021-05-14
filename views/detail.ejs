@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="icon" href="img/fav-icon.png" type="image/x-icon" />
+    <title>MarketPlace</title>
+
+    <!-- Icon css link -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="vendors/line-icon/css/simple-line-icons.css" rel="stylesheet">
+    <link href="vendors/elegant-icon/style.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Rev slider css -->
+    <link href="vendors/revolution/css/settings.css" rel="stylesheet">
+    <link href="vendors/revolution/css/layers.css" rel="stylesheet">
+    <link href="vendors/revolution/css/navigation.css" rel="stylesheet">
+
+    <!-- Extra plugin css -->
+    <link href="vendors/owl-carousel/owl.carousel.min.css" rel="stylesheet">
+    <link href="vendors/bootstrap-selector/css/bootstrap-select.min.css" rel="stylesheet">
+
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+
+    <script type="text/javascript" src="/angular_v1.2.30/angular.min.js"></script>
+    <script type="text/javascript" src="/angular_v1.2.30/angular-cookies.min.js"></script>
+    <script type="text/javascript" src="/moment-2.18.1/moment-with-locales.js"></script>
+
+    <script>
+
+		<% include ./detail.controller.js %>
+
+    </script>
+</head>
+
+<body ng-app="detailApp" ng-controller="DetailController as detailVM">
+
+    <!--================Top Header Area =================-->
+    <div class="header_top_area" style="padding-bottom: 10px">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="top_header_left">
+                        <div class="input-group">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <a href="/">
+                        <div class="top_header_middle">
+                            <img src="img/nlogo.png" alt="">
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3">
+                    <div class="top_right_header">
+                        <ul class="top_right">
+                            <li class="user"><a href="/user"><i class="icon-user icons"></i></a></li>
+                            <p style="color:#3114c5"><%= userLogInStatus %></p>
+                            <span style="display: none" id="DETAIL_SELECTED_BOOK_ID"><%= selectedBookId %></span>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--================End Top Header Area =================-->
+
+    <!--================Menu Area =================-->
+    <header class="shop_header_area">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="/"><img src="img/nnlogo.png" alt=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="/favorite">내 찜 목록</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/registerBook">판매하기</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/user">개인정보</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" ng-click="detailVM.onClickLogOut()">로그아웃</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!--================End Menu Area =================-->
+
+    <!--================Product Details Area =================-->
+    <section class="product_details_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="product_details_slider">
+                        <div class="rev_slider">
+                            <img ng-src="{{detailVM.bookInfo.picture_address}}" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="product_details_text">
+                        <h3>{{detailVM.bookInfo.book_name}}</h3>
+                        <ul class="p_rating">
+                            <li><i id="DETAIL_RATING_BOOK_1" class="fa fa-star" style="color: rgb(239, 181, 4); font-size: 15px"></i></li>
+                            <li><i id="DETAIL_RATING_BOOK_2" class="fa fa-star" style="color: rgb(239, 181, 4); font-size: 15px"></i></li>
+                            <li><i id="DETAIL_RATING_BOOK_3" class="fa fa-star" style="color: rgb(239, 181, 4); font-size: 15px"></i></li>
+                            <li><i id="DETAIL_RATING_BOOK_4" class="fa fa-star" style="color: rgb(239, 181, 4); font-size: 15px"></i></li>
+                            <li><i id="DETAIL_RATING_BOOK_5" class="fa fa-star" style="color: rgb(239, 181, 4); font-size: 15px"></i></li>
+                        </ul>
+                        <div class="add_review">
+                            <a href="#">{{detailVM.bookInfo.book_status.book_status_name}}</a>
+                            <span style="font-size: 14px; font-family: 'Poppins', sans-serif; color: #666666">판매자 :</span>
+                            <span style="font-size: 14px; font-family: 'Poppins', sans-serif; color: #666666">{{detailVM.bookInfo.user_id}}</span>
+                        </div>
+                        <h6>현재 상태 : <span>판매 중 </span></h6>
+                        <h4>￦{{detailVM.bookInfo.book_price}}원</h4>
+                        <p>{{detailVM.bookInfo.book_content}}</p>
+
+                        <div class="p_color">
+                            <h4 class="p_d_title">추가정보 <span>*</span></h4>
+
+                        </div>
+                        <div class="quantity" style="margin-top: 12px">
+                            <a class="add_cart_btn" href="#" style="margin-left: 0; margin-right: 10px" ng-click="detailVM.onInsertFavoriteBook()">찜하기</a>
+                            <a class="update_btn" style="height: 50px;" ng-click="detailVM.onChatBookUser()">판매자와 채팅</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--================Product Description Area =================-->
+    <section class="product_description_area">
+        <div class="container">
+            <nav class="tab_menu">
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+                        aria-controls="nav-home" aria-selected="true">상세 정보</a>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <p>출간일 : {{detailVM.bookInfo.publish_Day}}</p>
+                    <br>
+                    <p>카테고리 : {{detailVM.bookInfo.book_category.category_name}}</p>
+                    <br>
+                    <p>{{detailVM.bookInfo.book_content}}</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!--================End Product Details Area =================-->
+
+    <!--================End Product Details Area =================-->
+
+    <!--================Footer Area =================-->
+    <footer class="footer_area">
+        <div class="container">
+            <div class="footer_widgets">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-6">
+                        <aside class="f_widget f_about_widget">
+                            <img src="img/nlogo.png" alt="">
+                            <p>MarketPlace is a Premium Market. Best choice for your online store. Let purchase it to
+                                enjoy now</p>
+                        </aside>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-6">
+                        <aside class="f_widget link_widget f_info_widget">
+                            <div class="f_w_title">
+                                <h3>Information</h3>
+                            </div>
+                            <ul>
+                                <li><a href="#">About us</a></li>
+                                <li><a href="#">Help Center</a></li>
+                            </ul>
+                        </aside>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-6">
+                        <aside class="f_widget link_widget f_account_widget">
+                            <div class="f_w_title">
+                                <h3>My Account</h3>
+                            </div>
+                            <ul>
+                                <li><a href="#">My account</a></li>
+                            </ul>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_copyright">
+                <h5>© 2019 Copyright @ All rights reserved
+                </h5>
+            </div>
+        </div>
+    </footer>
+    <!--================End Footer Area =================-->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Rev slider js -->
+    <script src="vendors/revolution/js/jquery.themepunch.tools.min.js"></script>
+    <script src="vendors/revolution/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="vendors/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+    <script src="vendors/revolution/js/extensions/revolution.extension.video.min.js"></script>
+    <script src="vendors/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="vendors/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="vendors/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="vendors/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <!-- Extra plugin css -->
+    <script src="vendors/counterup/jquery.waypoints.min.js"></script>
+    <script src="vendors/counterup/jquery.counterup.min.js"></script>
+    <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="vendors/bootstrap-selector/js/bootstrap-select.min.js"></script>
+    <script src="vendors/image-dropdown/jquery.dd.min.js"></script>
+    <script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
+    <script src="vendors/isotope/isotope.pkgd.min.js"></script>
+    <script src="vendors/magnify-popup/jquery.magnific-popup.min.js"></script>
+    <script src="vendors/vertical-slider/js/jQuery.verticalCarousel.js"></script>
+    <script src="vendors/jquery-ui/jquery-ui.js"></script>
+
+    <script src="js/theme.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+/*font Variables*/
+$mon: 'Montserrat', sans-serif;
+$pop: 'Poppins', sans-serif;
+$lato: 'Lato', sans-serif;
+$play: 'Playfair Display', serif;
+
+/*Color Variables*/
+
+$baseColor: #d91522;
+$dip: #0b1033;
+$gray: #999999;
+$pfont: #666666;
+
+
+
+// Mixins
+@mixin transition($property: all, $duration: 400ms, $animate: linear, $delay:0s){
+    transition: $property $duration $animate $delay; 
+}
+
+// Placeholder Mixins
+@mixin placeholder {
+  &.placeholder { @content; }
+  &:-moz-placeholder { @content; }
+  &::-moz-placeholder { @content; }
+  &::-webkit-input-placeholder { @content; }
+}
+
+.col-md-offset-right-1,.col-lg-offset-right-1{
+    margin-right: 8.33333333%;
+}
+// Font family link
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800|Poppins:300,400,500,600,700,800');
+
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900');
+
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
+//@font-face {
+//    font-family: "ralH";
+//    src: url(../fonts/theme-font/Arial.ttf.woff);
+//}

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="icon" href="img/fav-icon.png" type="image/x-icon" />
+    <title>MarketPlace</title>
+
+    <!-- Icon css link -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="vendors/line-icon/css/simple-line-icons.css" rel="stylesheet">
+    <link href="vendors/elegant-icon/style.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Rev slider css -->
+    <link href="vendors/revolution/css/settings.css" rel="stylesheet">
+    <link href="vendors/revolution/css/layers.css" rel="stylesheet">
+    <link href="vendors/revolution/css/navigation.css" rel="stylesheet">
+
+    <!-- Extra plugin css -->
+    <link href="vendors/owl-carousel/owl.carousel.min.css" rel="stylesheet">
+    <link href="vendors/bootstrap-selector/css/bootstrap-select.min.css" rel="stylesheet">
+
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+
+    <script type="text/javascript" src="/angular_v1.2.30/angular.min.js"></script>
+    <script type="text/javascript" src="/angular_v1.2.30/angular-cookies.min.js"></script>
+    <script type="text/javascript" src="/moment-2.18.1/moment-with-locales.js"></script>
+
+    <script>
+
+		<% include ./registerBook.controller.js %>
+
+    </script>
+</head>
+
+<body ng-app="registerBookApp" ng-controller="RegisterBookController as registerBookVM">
+
+    <!--================Top Header Area =================-->
+    <div class="header_top_area" style="padding-bottom: 10px">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="top_header_left">
+                        <div class="input-group">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <a href="/">
+                        <div class="top_header_middle">
+                            <img src="img/nlogo.png" alt="">
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3">
+                    <div class="top_right_header">
+                        <ul class="top_right">
+                            <li class="user"><a href="/user"><i class="icon-user icons"></i></a></li>
+                            <p style="color:#3114c5"><%= userLogInStatus %></p>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--================End Top Header Area =================-->
+
+    <!--================Menu Area =================-->
+    <header class="shop_header_area">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="/"><img src="img/nnlogo.png" alt=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="/favorite">내 찜 목록</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/registerBook">판매하기</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/user">개인정보</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" ng-click="registerBookVM.onClickLogOut()">로그아웃</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!--================End Menu Area =================-->
+
+    <!--================Categories Banner Area =================-->
+    <section class="solid_banner_area">
+        <div class="container">
+            <div class="solid_banner_inner">
+                <h3>The sale of my book</h3>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!--================End Categories Banner Area =================-->
+
+    <!--================Register Area =================-->
+    <section class="register_area p_100" style="padding-top: 50px">
+        <div class="container">
+            <div class="register_inner">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="billing_details">
+                            <h2 class="reg_title">＊책 정보</h2>
+                            <form class="billing_inner row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="name">제목 <span>*</span></label>
+                                        <input type="text" class="form-control" id="REGISTER_BOOK_NAME"
+                                            placeholder="제목을 입력해주세요">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="name">내용 <span>*</span></label>
+                                        <textarea class="form-control" id="REGISTER_BOOK_CONTENT" rows="5"></textarea>
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="name">판매가 <span>*</span></label>
+                                        <input type="number" class="form-control" id="REGISTER_BOOK_PRICE"
+                                            placeholder="판매가를 입력해주세요">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="cun">책 상태 <span>*</span></label>
+                                        <select class="selectpicker" id="REGISTER_BOOK_STATUS">
+                                            <option value="1">최상등급</option>
+                                            <option value="2">상등급</option>
+                                            <option value="3">중상등급</option>
+                                            <option value="4">중등급</option>
+                                            <option value="5">중하등급</option>
+                                            <option value="6">하등급</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="cun">책 카테고리 <span>*</span></label>
+                                        <select class="selectpicker" id="REGISTER_BOOK_CATEGORY">
+                                            <option value="2">디자인대학</option>
+                                            <option value="3">과학기술대학</option>
+                                            <option value="4">의료생명대학</option>
+                                            <option value="5">인문사회융합대학</option>
+                                            <option value="6">힐링바이오공유대학</option>
+                                            <option value="7">교양</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="name">출간일 <span>*</span></label>
+                                        <input type="date" name="bday" class="form-control"
+                                            id="REGISTER_BOOK_PUBLISH" placeholder="">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="order_box_price">
+                            <h2 class="reg_title">＊책 이미지</h2>
+                            <div class="payment_list">
+
+                                <div class="price_single_cost">
+                                    <h5>이미지 정보 <span>* 270x320 사이즈(*.jpg)</span></h5>
+                                    <h5>이미지 이름 <span id="REGISTER_BOOK_INPUT_BookImageName"></span></h5>
+                                    <h5>이미지 미리보기</h5>
+                                    <h5><img id="REGISTER_BOOK_INPUT_BookImageTemp" width="270" height="320"></h5>
+                                </div>
+                                
+                                <div id="accordion" role="tablist" class="price_method">
+                                    <button class="btn update_btn" type="button" ng-click="registerBookVM.onFileSelectBookImage()">파일 선택</button>
+                                    <input id="REGISTER_BOOK_INPUT_BookImage" type="file" accept=".jpg" style="display: none;" readonly="" onchange="angular.element(this).scope().onSelectedBookImage(); this.value=null; return false;">
+                                </div>
+                            </div>
+                            <button class="btn subs_btn form-control" ng-click="registerBookVM.onClickRegisterBook()" >등록</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================End Register Area =================-->
+
+    <!--================End Product Details Area =================-->
+
+    <!--================Footer Area =================-->
+    <footer class="footer_area">
+        <div class="container">
+            <div class="footer_widgets">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-6">
+                        <aside class="f_widget f_about_widget">
+                            <img src="img/nlogo.png" alt="">
+                            <p>MarketPlace is a Premium Market. Best choice for your online store. Let purchase it to
+                                enjoy now</p>
+                        </aside>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-6">
+                        <aside class="f_widget link_widget f_info_widget">
+                            <div class="f_w_title">
+                                <h3>Information</h3>
+                            </div>
+                            <ul>
+                                <li><a href="#">About us</a></li>
+                                <li><a href="#">Help Center</a></li>
+                            </ul>
+                        </aside>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-6">
+                        <aside class="f_widget link_widget f_account_widget">
+                            <div class="f_w_title">
+                                <h3>My Account</h3>
+                            </div>
+                            <ul>
+                                <li><a href="#">My account</a></li>
+                            </ul>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_copyright">
+                <h5>© 2019 Copyright @ All rights reserved
+                </h5>
+            </div>
+        </div>
+    </footer>
+    <!--================End Footer Area =================-->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Rev slider js -->
+    <script src="vendors/revolution/js/jquery.themepunch.tools.min.js"></script>
+    <script src="vendors/revolution/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="vendors/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+    <script src="vendors/revolution/js/extensions/revolution.extension.video.min.js"></script>
+    <script src="vendors/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="vendors/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="vendors/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="vendors/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <!-- Extra plugin css -->
+    <script src="vendors/counterup/jquery.waypoints.min.js"></script>
+    <script src="vendors/counterup/jquery.counterup.min.js"></script>
+    <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="vendors/bootstrap-selector/js/bootstrap-select.min.js"></script>
+    <script src="vendors/image-dropdown/jquery.dd.min.js"></script>
+    <script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
+    <script src="vendors/isotope/isotope.pkgd.min.js"></script>
+    <script src="vendors/magnify-popup/jquery.magnific-popup.min.js"></script>
+    <script src="vendors/vertical-slider/js/jQuery.verticalCarousel.js"></script>
+    <script src="vendors/jquery-ui/jquery-ui.js"></script>
+
+    <script src="js/theme.js"></script>
+
+</body>
+
+</html>

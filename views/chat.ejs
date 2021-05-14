@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MarketPlace</title>
+
+    <script type="text/javascript" src="/angular_v1.2.30/angular.min.js"></script>
+    <script type="text/javascript" src="/angular_v1.2.30/angular-cookies.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"
+        id="bootstrap-css">
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/moment-2.18.1/moment-with-locales.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script>
+
+            <% include ./chat.controller.js %>
+
+    </script>
+    <style>
+        .chat {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .chat li {
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px dotted #B3A9A9;
+        }
+
+        .chat li.left .chat-body {
+            margin-left: 60px;
+        }
+
+        .chat li.right .chat-body {
+            margin-right: 60px;
+        }
+
+
+        .chat li .chat-body p {
+            margin: 0;
+            color: #777777;
+        }
+
+        .panel .slidedown .glyphicon,
+        .chat .glyphicon {
+            margin-right: 5px;
+        }
+
+        .panel-body {
+            overflow-y: scroll;
+            height: 250px;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        .container,
+        .row {
+            height: 100%;
+        }
+
+        .flex-row,
+        .flex-row>div[class*='col-'] {
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            flex: 0 auto;
+            height: 100%;
+        }
+
+        .flex-col {
+            display: flex;
+            display: -webkit-flex;
+            flex: 1;
+            flex-flow: column nowrap;
+        }
+
+        .flex-grow {
+            display: flex;
+            -webkit-flex: 2;
+            flex: 2;
+        }
+    </style>
+</head>
+
+
+<body ng-app="chatApp" ng-controller="ChatController as chatVM">
+    <div class="container">
+        <div class="row flex-row">
+            <span style="display: none" id="CHAT_SELECTED_USER_ID"><%= selectedUserId %></span>
+            <span style="display: none" id="CHAT_SELECTED_CHAT_ID"><%= selectedChatId %></span>
+            <div class="panel panel-danger flex-col" style="margin: 0">
+                <div class="panel-heading">{{chatVM.selectedToUserId}}</div>
+                <div class="panel-body flex-grow" id="CHAT_MESSAGE_VIEW">
+                    <ul class="chat" id="CHAT_MESSAGE" style="width: 100%">
+
+                        <li>
+                            <div class="chat-body clearfix">
+                                <div class="header" style="text-align: center">
+                                    <strong class="primary-font">{{chatVM.currentTime}}</strong>
+                                </div>
+                                <br>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </div>
+                <div class="panel-footer">
+                    <div class="input-group">
+                        <input id="CHAT_INPUT_MESSAGE" type="text" class="form-control input-sm"
+                            placeholder="Type your message here..." />
+                        <span class="input-group-btn">
+                            <button class="btn btn-warning btn-sm" ng-click="chatVM.onClickSend()">
+                                Send</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

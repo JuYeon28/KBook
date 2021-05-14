@@ -1,0 +1,148 @@
+/* Add Button css
+============================================================================================ */
+.add_btn{
+    font-size: 16px;
+    font-family: $pop;
+    color: #000;
+    font-weight: 600;
+    vertical-align: middle;
+    @include transition;
+    i{
+        padding-left: 2px;
+        position: relative;
+        top: 3px;
+        @include transition;
+        left: 0px;
+    }
+    &:hover{
+        color: $baseColor;
+        i{
+            left: 5px;
+        }
+    }
+}
+
+.add_cart_btn{
+    background: #262121;
+    color: #fff;
+    line-height: 38px;
+    border: 1px solid #262121;
+    display: inline-block;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: .70px;
+    padding: 0px 15px;
+    @include transition;
+    font-family: $pop;
+    &:hover{
+        color: #fff;
+        background: transparent;
+        color: #262121;
+    }
+}
+.discover_btn{
+    display: inline-block;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, .20);
+    padding: 0px 20px;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 14px;
+    line-height: 38px;
+    font-family: $pop;
+    font-weight: normal;
+    @include transition;
+    &:hover{
+        color: $baseColor;
+        border-color: $baseColor;
+    }
+}
+
+.shop_now_btn{
+    background: $baseColor;
+    display: inline-block;
+    color: #fff;
+    padding: 0px 16px;
+    font-size: 14px;
+    font-family: $pop;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 36px;
+    border: 1px solid $baseColor;
+    @include transition;
+    &:hover{
+        background: transparent;
+        color: $baseColor;
+    }
+}
+
+.subs_btn{
+    background: #333333;
+    text-transform: uppercase;
+    color: #fff;
+    font-family: $pop;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: .70px;
+    border-radius: 0px;
+    border: 1px solid #333333;
+    padding: 0px 35px;
+    line-height: 48px;
+    @include transition;
+    outline: none !important;
+    box-shadow: none !important;
+    cursor: pointer;
+    &:hover{
+        background: transparent;
+        color: #333333;
+    }
+}
+
+.update_btn{
+    background: transparent;
+    border: 1px solid #cccccc;
+    border-radius: 0px;
+    color: #000;
+    font-family: $pop;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 0px 20px;
+    line-height: 54px;
+    outline: none !important;
+    box-shadow: none !important;
+    @include transition;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-block;
+    &:hover{
+        background: #333333;
+        border-color: #333333;
+        color: #fff;
+    }
+}
+.checkout_btn{
+    background: #d42421;
+    border: 1px solid #d42421;
+    border-radius: 0px;
+    color: #fff;
+    font-family: $pop;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 0px 19px;
+    line-height: 54px;
+    outline: none !important;
+    box-shadow: none !important;
+    @include transition;
+    font-size: 14px;
+    cursor: pointer;
+    display: inline-block;
+    &:hover{
+        background: #333333;
+        border-color: #333333;
+        color: #fff;
+    }
+}
+
+/* End Add Button css
+============================================================================================ */

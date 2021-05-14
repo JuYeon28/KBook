@@ -1,0 +1,494 @@
+/* Feature Add css
+============================================================================================ */
+.feature_add_area{
+    margin-top: 30px;
+}
+.feature_inner{
+    
+}
+.f_add_item{
+    position: relative;
+    .f_add_hover{
+        position: absolute;
+        left: 26px;
+        top: 50%;
+        transform: translateY(-50%);
+        h4{
+            font-size: 24px;
+            color: #000;
+            font-family: $pop;
+            font-weight: 600;
+            padding-bottom: 8px;
+        }
+    }
+    .sale{
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        background: $baseColor;
+        color: #fff;
+        font-size: 14px;
+        text-transform: uppercase;
+        font-family: $pop;
+        font-weight: 600;
+        padding: 0px 15px;
+        line-height: 25px;
+    }
+    .off{
+        background: #000;
+        color: #fff;
+        font-family: $pop;
+        font-weight: 600;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        padding: 0px 10px;
+        line-height: 25px;
+        font-size: 14px;
+    }    
+    &.right_dir{
+        .f_add_hover{
+            left: auto;
+            right: 20px;
+        }
+    }
+    &.white_add{
+        .f_add_hover{
+            h4{
+                color: #fff;
+            }
+            .add_btn{
+                color: #fff;
+            }
+        }
+    }
+}
+.feature_big_add_area{
+    padding-top: 10px;
+    padding-bottom: 40px;
+}
+.promotion_area{
+    margin-top: 20px;
+    .feature_inner{
+       
+    }
+    .left_promotion{
+        flex: 0 0 55.8%;
+        max-width: 55.8%;
+        padding-right: 15px;
+    }
+    .right_promotion{
+        flex: 0 0 44.2%;
+        max-width: 44.2%;
+        padding-left: 15px;
+    }
+    .f_add_item{
+        .f_add_hover{
+            .sale{
+                position: relative;
+                margin-bottom: 15px;
+            }
+        }
+        &.right_dir{
+            .f_add_hover{
+                right: 0px;
+                left: 30px;
+                .off{
+                    position: relative;
+                    display: inline-block;
+                    left: 0px;
+                    top: 0px;
+                    margin-bottom: 15px;
+                    right: auto;
+                }
+            }
+        }
+    }
+}
+
+/* End Feature Add css
+============================================================================================ */
+
+
+/* Special Offer css
+============================================================================================ */
+.special_offer_area{
+    padding-top: 30px;
+}
+.special_offer_item{
+    position: relative;
+    .hover_text{
+        position: absolute;
+        left: 0px;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+        width: 100%;
+        h4{
+            font-size: 24px;
+            font-weight: bold;
+            color: $dip;
+            font-family: $pop;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+            &:before{
+                content: "for";
+                position: absolute;
+                right: -40px;
+                bottom: 0px;
+                color: $baseColor;
+                text-transform: none;
+                font-size: 16px;
+                font-family: $pop;
+            }
+        }
+        h5{
+            font-size: 30px;
+            font-weight: bold;
+            color: $dip;
+            font-family: $pop;
+            text-transform: uppercase;
+            padding-bottom: 18px;
+        }
+    }
+}
+.special_offer_item2{
+    position: relative;
+    .hover_text{
+        position: absolute;
+        left: 25px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        h5{
+            font-size: 30px;
+            font-weight: bold;
+            color: $dip;
+            font-family: $pop;
+            text-transform: uppercase;
+            padding-bottom: 15px;
+        }
+    }
+}
+/* End Special Offer css
+============================================================================================ */
+
+/* Full Width Feature Area css
+============================================================================================ */
+.fullwidth_feature_area{
+    
+}
+.full_feature_item{
+    overflow: hidden;
+    display: flex;
+    margin-top: 30px;
+    .left_full_feature{
+        width: calc(50% + 185px);
+        float: left;
+        overflow: hidden;
+    }
+    .right_full_feature{
+        width: calc(50% - 185px);
+        float: right;
+        overflow: hidden;
+        display: flex;
+        .full_feature_text{
+            align-self: center;
+            vertical-align: middle;
+            max-width: 270px;
+            margin-left: 85px;
+        }
+    }
+}
+.full_feature_text{
+    text-align: center;
+    h4{
+        font-size: 30px;
+        color: $dip;
+        font-family: $pop;
+        font-weight: normal;
+    }
+    h5{
+        font-size: 18px;
+        font-family: $mon;
+        font-weight: 600;
+        color: $baseColor;
+        padding-top: 12px;
+    }
+    .sunglass_slider{
+        .item{
+            text-align: center;
+            img{
+                width: auto; 
+                display: inline-block;
+            }
+        }
+        .owl-dots{
+            text-align: center;
+            margin-top: 15px;
+            .owl-dot{
+                height: 15px;
+                width: 15px;
+                background: #000;
+                border-radius: 50%;
+                display: inline-block;
+                margin-right: 8px;
+                &.active{
+                    background: $baseColor;
+                }
+            }
+        }
+    }
+    .add_cart_btn{
+        padding: 0px 35px;
+        margin-top: 30px;
+    }
+}
+.dir_right{
+    .left_full_feature{
+        float: right;
+    }
+    .right_full_feature{
+        float: left;
+        .full_feature_text{
+            margin-left: 0px;
+            max-width: 100%;
+            display: block;
+            width: 100%;
+            .full_feature_text_inner{
+                max-width: 270px;
+                float: right;
+                margin-right: 85px;
+                h5{
+                    padding-bottom: 20px;
+                }
+                .sunglass_slider{
+                    .owl-dots{
+                        margin-top: 25px;
+                    }
+                }
+            }
+        }
+    }
+}
+/* End Full Width Feature Area css
+============================================================================================ */
+
+/* Home Parallax Area css
+============================================================================================ */
+.full_page_area{
+    
+}
+.paper_inner{
+    margin-bottom: 200px;
+    text-align: center;
+}
+.parallax_style_one{
+    color: #fff;
+    h3{
+        font-size: 60px;
+        font-family: $pop;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 18px 0px 40px 0px;
+    }
+    h4{
+        font-size: 30px;
+        font-family: $pop;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+    .add_cart_btn{
+        padding: 0px 32px;
+    }
+    .discover_btn{
+        border: 1px solid #fff;
+        padding: 0px 32px;
+    }
+}
+
+.parallax_style_two{
+    color: #fff;
+    h3{
+        font-size: 150px;
+        font-family: $play;
+        font-weight: bold;
+        letter-spacing: .7.5px;
+    }
+    h4{
+        font-size: 30px;
+        font-family: $pop;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 12.6px;
+        padding-top: 30px;
+    }
+    i{
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        background: #fff;
+        color: $baseColor;
+        line-height: 80px;
+        font-size: 15.44px;
+        @include transition;
+        margin-top: 60px;
+        &:hover{
+            background: $baseColor;
+            color: #fff;
+        }
+    }
+    .discover_btn{
+        border: 1px solid #fff;
+        padding: 0px 32px;
+        margin-top: 35px;
+    }
+}
+
+/* End Home Parallax Area css
+============================================================================================ */
+
+/* World Servie Area css
+============================================================================================ */
+.world_service{
+    margin-top: 40px;
+}
+.world_service_inner{
+    border: 1px solid #e5e5e5;
+    .col-lg-3{
+        &:last-child{
+            .world_service_item{
+                &:before{
+                    display: none;
+                }
+            }
+        }
+    }
+}
+.world_service_item{
+    padding: 35px 0px;
+    text-align: center;
+    position: relative;
+    &:before{
+        content: "";
+        width: 1px;
+        height: 60px;
+        position: absolute;
+        right: -15px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #e5e5e5;
+    }
+    h4{
+        font-size: 18px;
+        color: #000;
+        font-family: $pop;
+        padding-top: 3px;
+        img{
+            padding-right: 20px;
+            position: relative;
+            top: -2px;
+        }
+    }
+}
+.advanced_search_area{
+    border: 1px solid #e5e5e5;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    display: flex;
+    .bootstrap-select{
+        flex: 0 0 25%;
+        max-width: 25%;
+        width: 100% !important;
+        text-align: center;
+        .dropdown-toggle{
+            padding: 0px;
+            line-height: 58px;
+            text-align: center;
+            margin: 0px;
+            border: none;
+            box-shadow: none !important;
+            outline: none !important;
+            position: relative;
+            border-radius: 0px;
+            span{
+                font-size: 14px;
+                font-family: $mon;
+                font-weight: 600;
+                color: #000;
+                text-transform: uppercase;
+                text-align: center !important;
+            } 
+            &:after{
+                content: "\33";
+                font-family: 'ElegantIcons';
+                font-size: 14px;
+                color: #000;
+                margin: 0px;
+                width: auto; 
+                height: auto;
+                position: absolute;
+                right: 22px;
+                top: 50%;
+                transform: translateY(-50%);
+                border: none;
+            }
+        } 
+        .dropdown-menu {
+            padding: 0px;
+            border-radius: 0px;
+            .dropdown-menu.inner{
+                display: inline-block;
+                li{
+                    a{
+                        padding: 0px 10px;
+                        font-size: 14px;
+                        color: $pfont;
+                        line-height: 35px;
+                    }
+                }
+            }
+        }
+    }
+    .input-group{
+        flex: 0 0 75%;
+        max-width: 75%;
+        input{
+            border: none;
+            padding: 0px 0px 0px 40px;
+            outline: none;
+            box-shadow: none;
+            height: 58px;
+            font-size: 14px;
+            font-family: $pop;
+            color: $pfont;
+            letter-spacing: .35px;
+            @include placeholder{
+                font-size: 14px;
+                font-family: $pop;
+                color: $pfont;
+                letter-spacing: .35px;
+            }
+        }
+        .input-group-btn{
+            .btn-secondary{
+                background: $baseColor;
+                border-radius: 0px;
+                outline: none !important;
+                box-shadow: none !important;
+                border: none;
+                font-size: 15px;
+                color: #fff;
+                padding: 0px;
+                width: 66px;
+                margin: 0px;
+                cursor: pointer;
+            }
+        }
+    }    
+}
+/* End World Servie Area css
+============================================================================================ */
+
+

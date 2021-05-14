@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="icon" href="img/fav-icon.png" type="image/x-icon" />
+    <title>MarketPlace</title>
+
+    <!-- Icon css link -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="vendors/line-icon/css/simple-line-icons.css" rel="stylesheet">
+    <link href="vendors/elegant-icon/style.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Rev slider css -->
+    <link href="vendors/revolution/css/settings.css" rel="stylesheet">
+    <link href="vendors/revolution/css/layers.css" rel="stylesheet">
+    <link href="vendors/revolution/css/navigation.css" rel="stylesheet">
+
+    <!-- Extra plugin css -->
+    <link href="vendors/owl-carousel/owl.carousel.min.css" rel="stylesheet">
+    <link href="vendors/bootstrap-selector/css/bootstrap-select.min.css" rel="stylesheet">
+
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+
+    <script type="text/javascript" src="/angular_v1.2.30/angular.min.js"></script>
+    <script type="text/javascript" src="/angular_v1.2.30/angular-cookies.min.js"></script>
+
+    <script type="text/javascript" src="/moment-2.18.1/moment-with-locales.js"></script>
+
+    <script>
+
+		<% include ./user.controller.js %>
+
+    </script>
+</head>
+
+<body ng-app="userApp" ng-controller="UserController as userVM">
+
+    <!--================Top Header Area =================-->
+    <div class="header_top_area" style="padding-bottom: 10px">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="top_header_left">
+                        <div class="input-group">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <a href="/">
+                        <div class="top_header_middle">
+                            <img src="img/nlogo.png" alt="">
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3">
+                    <div class="top_right_header">
+                        <ul class="top_right">
+                            <li class="user"><a href="/user"><i class="icon-user icons"></i></a></li>
+                            <p style="color:#3114c5"><%= userLogInStatus %></p>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--================End Top Header Area =================-->
+
+    <!--================Menu Area =================-->
+    <header class="shop_header_area">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="/"><img src="img/nnlogo.png" alt=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="/favorite">내 찜 목록</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/registerBook">판매하기</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/user">개인정보</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" ng-click="userVM.onClickLogOut()">로그아웃</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!--================End Menu Area =================-->
+
+    <!--================Categories Product Area =================-->
+    <section class="categories_product_main p_80">
+        <div class="container">
+            <div class="categories_main_inner">
+                <div class="row row_disable">
+                    <div id="USER_SELL_VIEW" class="col-lg-9 float-md-right">
+                        <div class="c_product_grid_details" ng-repeat="bookItem in userVM.bookItemList">
+                            <div class="c_product_item" style="padding-top: 30px">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="c_product_img">
+                                            <img class="img-fluid" ng-src="{{bookItem.picture_address}}" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8 col-md-6">
+                                        <div class="c_product_text">
+                                            <h3>{{bookItem.book_name}}</h3>
+                                            <h5>￦{{bookItem.book_price}}원</h5>
+                                            <h6>책 상태 : <span>{{bookItem.book_status.book_status_name}}</span></h6>
+                                            <h6>책 카테고리 : <span>{{bookItem.book_category.category_name}}</span></h6>
+                                            <p>{{bookItem.book_content}}</p>
+                                            <ul class="c_product_btn">
+                                                <li><button class="btn update_btn form-control"
+                                                        ng-click="userVM.onClickEditBook(bookItem.book_id)">수정</button>
+                                                </li>
+                                                <li><button class="btn update_btn form-control"
+                                                        ng-click="userVM.onClickDeleteBook(bookItem.book_id)">삭제</button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="USER_CHAT_VIEW" class="col-lg-9 float-md-right" style="display: none">
+                        <div class="c_product_grid_details">
+                            <div class="c_product_item" style="border: none">
+
+
+                                <!--================ Chat List Area =================-->
+                                <section class="shopping_cart_area">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="cart_product_list">
+                                                    <div class="table-responsive-md">
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col"></th>
+                                                                    <th scope="col"></th>
+                                                                    <th scope="col" style="width: 10%">Who</th>
+                                                                    <th scope="col" style="width: 20%">Time</th>
+                                                                    <th scope="col" style="width: 10%">Delete</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr ng-repeat="chat in userVM.chatItemList">
+                                                                    <th scope="row">
+                                                                    </th>
+                                                                    <td>
+                                                                        <div class="media">
+                                                                            <div class="d-flex">
+                                                                                <img ng-src="{{chat.recentImage}}"
+                                                                                    alt="User Avatar"
+                                                                                    style="border-radius: 50%" />
+                                                                            </div>
+                                                                            <div class="media-body">
+                                                                                <a href="#" ng-click="userVM.onClickChat(chat.id)">
+                                                                                        <h4>{{chat.recentMessage}}</h4>
+                                                                                </a>
+                                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <p>{{chat.toUserID}}</p>
+                                                                    </td>
+                                                                    <td>
+                                                                        <p>{{chat.recentDate}}</p>
+                                                                    <td>
+                                                                        <button class="btn update_btn form-control"
+                                                                            ng-click="userVM.onClickDeleteChat(chat.id)">삭제</button>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <!--================End Chat List Area =================-->
+
+                            </div>
+                        </div>
+                    </div>
+                    <div id="USER_INFO_VIEW" class="col-lg-9 float-md-right" style="display: none">
+                        <div class="c_product_grid_details">
+                            <div class="c_product_item" style="padding-top: 30px">
+                                <div class="row">
+                                    <form class="login_form row">
+                                        <div class="col-lg-6 form-group">
+                                            <input class="form-control" type="text" ng-model="userVM.mEditUserID"
+                                                placeholder="ID" readonly>
+                                        </div>
+                                        <div class="col-lg-6 form-group">
+                                            <input class="form-control" type="email" ng-model="userVM.mEditEmail"
+                                                placeholder="Email">
+                                        </div>
+                                        <div class="col-lg-6 form-group">
+                                            <input class="form-control" type="text" ng-model="userVM.mEditDepartment"
+                                                placeholder="Department">
+                                        </div>
+                                        <div class="col-lg-6 form-group">
+                                            <input class="form-control" type="text" ng-model="userVM.mEditPhone"
+                                                placeholder="Phone">
+                                        </div>
+                                        <div class="col-lg-6 form-group">
+                                            <input class="form-control" type="password" ng-model="userVM.mEditPassWord"
+                                                placeholder="Password">
+                                        </div>
+                                        <div class="col-lg-6 form-group">
+                                            <input class="form-control" type="password"
+                                                ng-model="userVM.mEditRePassWord" placeholder="Re-Password">
+                                        </div>
+                                        <div class="col-lg-6 form-group">
+                                            <button class="btn subs_btn form-control"
+                                                ng-click="userVM.onClickEditUser()">수정</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 float-md-right">
+                        <div class="categories_sidebar">
+                            <aside class="l_widgest l_menufacture_widget">
+                                <div class="l_w_title">
+                                    <h3>Privacy</h3>
+                                </div>
+                                <ul>
+                                    <li><a href="#" ng-click="userVM.onClickSellView()">판매 관리</a></li>
+                                    <li><a href="#" ng-click="userVM.onClickChatView()">채팅 관리</a></li>
+                                    <li><a href="#" ng-click="userVM.onClickInfoView()">개인정보 관리</a></li>
+                                </ul>
+                            </aside>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================End Categories Product Area =================-->
+
+    <!--================Footer Area =================-->
+    <footer class="footer_area">
+        <div class="container">
+            <div class="footer_widgets">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-6">
+                        <aside class="f_widget f_about_widget">
+                            <img src="img/nlogo.png" alt="">
+                            <p>MarketPlace is a Premium Market. Best choice for your online store. Let purchase it to
+                                enjoy now</p>
+                        </aside>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-6">
+                        <aside class="f_widget link_widget f_info_widget">
+                            <div class="f_w_title">
+                                <h3>Information</h3>
+                            </div>
+                            <ul>
+                                <li><a href="#">About us</a></li>
+                                <li><a href="#">Help Center</a></li>
+                            </ul>
+                        </aside>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-6">
+                        <aside class="f_widget link_widget f_account_widget">
+                            <div class="f_w_title">
+                                <h3>My Account</h3>
+                            </div>
+                            <ul>
+                                <li><a href="#">My account</a></li>
+                            </ul>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_copyright">
+                <h5>© 2019 Copyright @ All rights reserved
+                </h5>
+            </div>
+        </div>
+    </footer>
+    <!--================End Footer Area =================-->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Rev slider js -->
+    <script src="vendors/revolution/js/jquery.themepunch.tools.min.js"></script>
+    <script src="vendors/revolution/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="vendors/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+    <script src="vendors/revolution/js/extensions/revolution.extension.video.min.js"></script>
+    <script src="vendors/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="vendors/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="vendors/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="vendors/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <!-- Extra plugin css -->
+    <script src="vendors/counterup/jquery.waypoints.min.js"></script>
+    <script src="vendors/counterup/jquery.counterup.min.js"></script>
+    <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="vendors/bootstrap-selector/js/bootstrap-select.min.js"></script>
+    <script src="vendors/image-dropdown/jquery.dd.min.js"></script>
+    <script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
+    <script src="vendors/isotope/isotope.pkgd.min.js"></script>
+    <script src="vendors/magnify-popup/jquery.magnific-popup.min.js"></script>
+    <script src="vendors/vertical-slider/js/jQuery.verticalCarousel.js"></script>
+    <script src="vendors/jquery-ui/jquery-ui.js"></script>
+
+    <script src="js/theme.js"></script>
+
+</body>
+
+</html>
